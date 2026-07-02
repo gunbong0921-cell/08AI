@@ -66,7 +66,8 @@ def find_image(fname, rate):
       yield (diff_r, fname)
       
 # 검색할 기준 이미지 경로 설정 
-srcfile = search_dir + "/chair/image_0016.jpg"
+# srcfile = search_dir + "/chair/image_0016.jpg"
+srcfile = search_dir + "/brain/image_0001.jpg"
 html = ""
 # 유사한 이미지 검색(rate : 0.25) 
 sim = list(find_image(srcfile, 0.25))
@@ -81,12 +82,13 @@ for r, f in sim:
         '</a></p></div>'
     html += s
 
-# HTML로 출력하기
+# HTML로 출력하기 
 html = """<html><head><meta charset="utf8"></head>
 <body><h3>원래 이미지</h3><p>
 <img src='{0}'></p>{1}
 </body></html>""".format("."+srcfile, html)
-with open("./saveFiles/avhash-search-output.html", "w", encoding="utf-8") as f:
+# with open("./saveFiles/avhash-search-output.html", "w", encoding="utf-8") as f:
+with open("./saveFiles/avhash-search-output2.html", "w", encoding="utf-8") as f:
     f.write(html)
 print("HTML 저장 Ok")
 
